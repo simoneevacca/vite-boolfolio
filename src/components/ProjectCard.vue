@@ -26,18 +26,44 @@ export default {
 
 <template>
     <div>
-        <div class="card">
-            <h3>{{ name }}</h3>
-            <p>{{ desc }}</p>
-            <img :src="image" alt="">
-            <a :href="view">View</a>
-            <a :href="code">code</a>
+        <div class="card card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>{{ name }}</h2>
+                <div class="d-flex gap-2">
+                    <div class="tag" v-for="tech in technology">{{ tech.name }}</div>
+                </div>
 
-            <div class="info">
-                {{ type }}
-                {{ technology }}
-                
             </div>
+
+            <p>{{ desc }}</p>
+            <p>Tipologia di lavoro: <span class="tag">{{ type }}</span></p>
+            <div class="d-flex gap-2 mb-3">
+
+            </div>
+
+            <img :src="image" alt="">
+            <div class="d-flex gap-2 mt-4">
+
+                <a class="btn btn-primary" :href="view">Guarda</a>
+                <a class="btn btn-dark" :href="code"><i class="fa-brands fa-github"></i> Apri su GitHub</a>
+            </div>
+
         </div>
     </div>
 </template>
+
+<style scoped>
+
+   .card{
+    box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.232);
+        .tag{
+            background-color: rgb(143, 196, 187);
+            padding: 0 0.5rem 0 0.5rem;
+            border-radius: 5px;
+        }
+        .btn{
+            width: 50%;
+        }
+   }
+
+</style>

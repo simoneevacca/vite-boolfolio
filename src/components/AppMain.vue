@@ -11,7 +11,9 @@ export default {
 
     data() {
         return {
-            projects: []
+            projects: [],
+            base_api_url: 'http://127.0.0.1:8000',
+            base_posts_url: '/api/projects',
         }
     },
 
@@ -32,9 +34,20 @@ export default {
 </script>
 
 <template>
-    <h1>Hello</h1>
+    <main>
 
-    <ProjectCard v-for="project in projects.data" :name="project.project_name" :desc="project.description"/>
+        <h1>Hello</h1>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col" v-for="project in projects.data">
+                    <ProjectCard :name="project.project_name" :desc="project.description" :image="base_api_url + '/storage/' + project.preview_image
+                        " :type="project.type.type_name" :view="project.link_view" :code="project.link_code"/>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
 
 
 </template>

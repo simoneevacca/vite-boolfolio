@@ -36,8 +36,8 @@ export default {
 <template>
     <section id="project">
 
-        <h1>Hello</h1>
         <div class="container">
+            <h1>Portfolio Progetti</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col" v-for="project in projects.data">
                     <ProjectCard :name="project.project_name" :desc="project.description" :image="base_api_url + '/storage/' + project.preview_image

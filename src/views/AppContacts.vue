@@ -1,12 +1,12 @@
 <script>
 
     export default {
-        name: 'AppHome',
+        name: 'AppContacts',
     }
 
 </script>
 
 <template>
 
-    <h1>HOME</h1>
+    <h1>CONTACTS</h1>
 </template>

@@ -2,6 +2,7 @@
 
 import { RouterView } from 'vue-router';
 import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
 
 
 
@@ -10,6 +11,7 @@ export default {
   components: {
 
     AppHeader,
+    AppFooter,
  
   }
 }
@@ -22,7 +24,16 @@ export default {
   <RouterView />
 </main>
 
-
+  <AppFooter />
 </template>
 
-<style></style>
+<style>
+
+  main{
+    /* padding: 3rem 0; */
+    /* background-color: rgb(143, 196, 187); */
+    min-height: 100vh;
+
+  }
+
+</style>

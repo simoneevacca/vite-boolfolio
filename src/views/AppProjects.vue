@@ -37,7 +37,7 @@ export default {
     <section id="project">
 
         <div class="container">
-            <h1>Portfolio Progetti</h1>
+            <h1>PORTFOLIO PROGETTI</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col" v-for="project in projects.data">
                     <ProjectCard :name="project.project_name" :desc="project.description" :image="base_api_url + '/storage/' + project.preview_image
@@ -53,9 +53,19 @@ export default {
 </template>
 
 <style scoped>
+    #project{
+            background-color: rgb(143, 196, 187);
+            height: 100vh;
+        
+        .container{
+            /* padding: 3rem 0; */
 
-    #project {
-        background-color: rgb(143, 196, 187);
+            h1{
+                padding: 3rem 0;
+            }
+            
+        }
+
     }
 
 </style>

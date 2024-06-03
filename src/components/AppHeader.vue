@@ -32,7 +32,7 @@ export default {
     <div class="nav">
         <div class="container">
             <nav class="navbar navbar-expand navbar-dark">
-                <div class="nav navbar-nav">
+                <div class="nav navbar-nav ">
                     <router-link class="nav-item nav-link" :to="{name: item.route}" v-for="item in menu">{{ item.text }}</router-link>
                     
                 </div>

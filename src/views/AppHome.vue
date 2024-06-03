@@ -7,21 +7,7 @@ export default {
 </script>
 
 <template>
-    <div class="jumbotron">
-        <div class="container">
-            <div class="row">
-                <div class="col d-flex gap-4">
-                    <div class="img"></div>
-                    <div class="me">
-                        <div>Simone Vacca</div>
-                        <div>Full-Stack Developer</div>
-                        <div>25 anni</div>
-                        <div>Roma</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
 
     <section class="description">
@@ -77,32 +63,8 @@ export default {
 </template>
 
 
-<style>
-.jumbotron {
-    background-color: rgb(52, 52, 52);
-    height: 250px;
+<style scoped>
 
-    .row {
-        position: absolute;
-
-        .col {
-            position: relative;
-            bottom: -80px;
-
-            .img {
-                height: 250px;
-                width: 200px;
-                background-color: white;
-            }
-
-            .me {
-                color: white;
-                line-height: 40px;
-                font-size: 1.5rem;
-            }
-        }
-    }
-}
 
 section{
     padding-bottom: 4rem;
@@ -134,6 +96,20 @@ section{
             padding: 0 1rem;
             border-radius: 10px;
         }
+    }
+}
+
+.description,
+.training,
+.experience {
+    .container {
+
+        color: rgb(207, 207, 207);
+        background-color: rgba(110, 110, 110, 0.122);
+        padding: 2rem;
+        border-radius: 30px;
+        box-shadow: 10px 10px rgba(133, 133, 133, 0.167);;
+        font-size: 1.1rem;
     }
 }
 </style>

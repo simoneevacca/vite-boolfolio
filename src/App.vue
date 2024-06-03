@@ -34,6 +34,7 @@ export default {
     /* background-color: rgb(143, 196, 187); */
     min-height: 100vh;
 
+   
   }
 
 </style>

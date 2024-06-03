@@ -34,8 +34,8 @@ import axios from 'axios';
 
 <template>
 
-    <div>
-        {{ $route.params.id }}
+    <div class="container">
+        
         <h1>{{ project.project_name }}</h1>
     </div>
 </template>

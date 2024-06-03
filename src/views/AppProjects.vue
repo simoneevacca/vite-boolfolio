@@ -41,7 +41,7 @@ export default {
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col" v-for="project in projects.data">
                     <ProjectCard :name="project.project_name" :desc="project.description" :image="base_api_url + '/storage/' + project.preview_image
-                        " :type="project.type.type_name" :technology="project.technologies" :view="project.link_view" :code="project.link_code"/>
+                        " :type="project.type.type_name" :technology="project.technologies" :view="project.link_view" :code="project.link_code" :id="project.id"/>
 
                 </div>
             </div>

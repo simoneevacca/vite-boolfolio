@@ -2,7 +2,7 @@
 import axios from 'axios';
 export default {
     name: 'ProjectCard',
-    props: ['name', 'desc', 'image', 'view', 'code', 'type', 'technology']
+    props: ['name', 'desc', 'image', 'view', 'code', 'type', 'technology', 'id']
 
 }
 
@@ -31,6 +31,8 @@ export default {
                 <a class="btn btn-primary" :href="view">Guarda</a>
                 <a class="btn btn-dark" :href="code"><i class="fa-brands fa-github"></i> Apri su GitHub</a>
             </div>
+
+            <router-link class="btn btn-primary" :to="{name: 'show', params: {id: id }}">Guarda il progetto</router-link>
 
         </div>
     </div>

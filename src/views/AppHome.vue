@@ -123,9 +123,11 @@ section{
 
     .skills-list{
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         list-style: none;
         li{
+            margin-bottom: 1rem;
             font-weight: bold;
             color: black;
             background-color:white;

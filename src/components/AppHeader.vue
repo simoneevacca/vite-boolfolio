@@ -50,7 +50,7 @@ export default {
 
             <nav>
                 
-                    <router-link class="nav-items" :to="{name: item.route}" v-for="item in menu">{{ item.text }}</router-link>
+                    <router-link  class="nav-items" :to="{name: item.route}" v-for="item in menu">{{ item.text }}</router-link>
                     
                 
             </nav>
@@ -72,11 +72,18 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content:space-around;
+        width: 200px;
 
         .nav-items{
             color: white;
             text-decoration: none;
             font-size: 1.5rem;
+            padding-right: 2rem;
+            transition: 1s;
+            &:hover {
+                font-size: 2.5rem;
+                
+            }
         }
     }
 

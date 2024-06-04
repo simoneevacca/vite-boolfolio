@@ -10,10 +10,10 @@ export default {
 
 <template>
     <div>
-        <div class="card card-body">
+        <div class="card ">
             <div class="d-flex justify-content-between align-items-center">
                 <h2>{{ name }}</h2>
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 flex-wrap">
                     <div class="tag" v-for="tech in technology">{{ tech.name }}</div>
                 </div>
 
@@ -28,11 +28,11 @@ export default {
             <img :src="image" alt="">
             <div class="d-flex gap-2 mt-4">
 
-                <a class="btn btn-primary" :href="view">Guarda</a>
-                <a class="btn btn-dark" :href="code"><i class="fa-brands fa-github"></i> Apri su GitHub</a>
+                <router-link class="btn btn-primary" :to="{name: 'show', params: {id: id }}"><strong>Guarda</strong></router-link>
+                <btn  class="btn btn-dark" :href="code"><i class="fa-brands fa-github"></i><strong> Apri su GitHub</strong></btn>
             </div>
-
-            <router-link class="btn btn-primary" :to="{name: 'show', params: {id: id }}">Guarda il progetto</router-link>
+            
+            
 
         </div>
     </div>
@@ -41,11 +41,30 @@ export default {
 <style scoped>
 
    .card{
-    box-shadow: 3px 3px 3px 3px rgba(255, 255, 255, 0.232);
+    
+    border: none;
+    color: rgb(207, 207, 207);
+    background-color: rgba(110, 110, 110, 0.122);
+    margin: 1rem;
+    padding: 2rem 1rem;
+    border-radius: 30px;
+    box-shadow: 10px 10px rgba(133, 133, 133, 0.167);
+    transition: 1s;
+
+    &:hover {
+        background-color: black;
+        z-index: 1;
+        box-shadow: 0 0 0 0;
+        margin: -5rem;
+    }
+
+
+
         .tag{
-            background-color: rgb(143, 196, 187);
-            padding: 0 0.5rem 0 0.5rem;
-            border-radius: 5px;
+            background-color: rgb(38, 33, 63);
+            padding: 0 1rem;
+            border-radius: 8px;
+           font-weight: bold;
         }
         .btn{
             width: 50%;

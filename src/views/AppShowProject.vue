@@ -25,8 +25,16 @@ import axios from 'axios';
         axios
             .get(url)
             .then(response => {
-                this.project = response.data.response;
-                console.log(this.project);
+                console.log(response);
+                if(response.data.success){
+                    this.project = response.data.response;
+
+                } else {
+                    this.$router.push({name: 'not-found'})
+                }
+
+            }).catch(err => {
+                console.error(err)
             })
     }
     }

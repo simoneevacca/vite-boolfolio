@@ -13,17 +13,21 @@ export default {
         return {
             projects: [],
             base_api_url: 'http://127.0.0.1:8000',
-            base_posts_url: '/api/projects',
+            base_project_url: '/api/projects',
         }
     },
 
     mounted() {
+
+        const url = this.base_api_url + this.base_project_url;
+
+
         axios
-            .get('http://127.0.0.1:8000/api/projects')
+            .get(url)
             .then(response => {
                 this.projects = response.data.results;
                 console.log(this.projects);
-            })
+        })
     }
 
 
@@ -41,7 +45,8 @@ export default {
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col" v-for="project in projects.data">
                     <ProjectCard :name="project.project_name" :desc="project.description" :image="base_api_url + '/storage/' + project.preview_image
-                        " :type="project.type.type_name" :technology="project.technologies" :view="project.link_view" :code="project.link_code" :id="project.id"/>
+                        " :type="project.type.type_name" :technology="project.technologies" :view="project.link_view"
+                        :code="project.link_code" :id="project.id" />
 
                 </div>
             </div>
@@ -53,19 +58,18 @@ export default {
 </template>
 
 <style scoped>
-    #project{
-            background-color: rgb(143, 196, 187);
-            height: 100vh;
-        
-        .container{
-            /* padding: 3rem 0; */
+#project {
 
-            h1{
-                padding: 3rem 0;
-            }
-            
+    height: 100vh;
+
+    .container {
+        /* padding: 3rem 0; */
+
+        h1 {
+            padding: 3rem 0;
         }
 
     }
 
+}
 </style>

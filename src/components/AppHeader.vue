@@ -3,28 +3,34 @@
 export default {
     name: 'AppHeader',
 
-    data(){
+    data() {
         return {
             menu: [
                 {
-                    'text' : 'Home',
-                    'route' : 'home'
+                    'text': 'Home',
+                    'route': 'home'
                 },
                 {
-                    'text' : 'Projects',
-                    'route' : 'projects'
+                    'text': 'Projects',
+                    'route': 'projects'
                 },
                 {
-                    'text' : 'About',
-                    'route' : 'about'
+                    'text': 'About',
+                    'route': 'about'
                 },
                 {
-                    'text' : 'Contacts',
-                    'route' : 'contacts'
+                    'text': 'Contacts',
+                    'route': 'contacts'
                 },
-            ]
+
+
+            ],
+
+
+
         }
-    }
+    },
+
 }
 </script>
 
@@ -32,29 +38,30 @@ export default {
     <div class="header">
         <div class="container d-flex justify-content-between">
             <div class="jumbotron">
-                
-                    <div class="row">
-                        <div class="col d-flex gap-4 align-items-center">
-                            <div class="img"></div>
-                            <div class="me">
-                                <div>Simone Vacca</div>
-                                <div>Full-Stack Developer</div>
-                                <div>25 anni</div>
-                                <div>Roma</div>
-                            </div>
+
+                <div class="row">
+                    <div class="col d-flex gap-4 align-items-center">
+                        <div class="img"></div>
+                        <div class="me">
+                            <div>Simone Vacca</div>
+                            <div>Full-Stack Developer</div>
+                            <div>25 anni</div>
+                            <div>Roma</div>
                         </div>
                     </div>
-                
+                </div>
+
             </div>
 
 
             <nav>
-                
-                    <router-link  class="nav-items" :to="{name: item.route}" v-for="item in menu">{{ item.text }}</router-link>
-                    
-                
+
+                <router-link class="nav-items" :to="{ name: item.route }" v-for="item in menu">{{ item.text
+                    }}</router-link>
+
+
             </nav>
-    
+
         </div>
 
     </div>
@@ -63,46 +70,46 @@ export default {
 </template>
 
 <style scoped>
-
-.header{
-    background-color: black;
+.header {
+    background-color: rgba(0, 0, 0, 0.671);
     padding: 2rem 0;
 
-    nav{
+    nav {
         display: flex;
         flex-direction: column;
-        justify-content:space-around;
+        justify-content: space-around;
         width: 200px;
 
-        .nav-items{
+        .nav-items {
             color: white;
             text-decoration: none;
             font-size: 1.5rem;
             padding-right: 2rem;
             transition: 1s;
+
             &:hover {
                 font-size: 2.5rem;
-                
+
             }
         }
     }
 
 
     .jumbotron {
-        
+
         height: 250px;
-    
+
         .row {
-            
-    
-            .col { 
-    
+
+
+            .col {
+
                 .img {
                     height: 250px;
                     width: 200px;
                     background-color: white;
                 }
-    
+
                 .me {
                     color: white;
                     line-height: 40px;
@@ -112,6 +119,4 @@ export default {
         }
     }
 }
-
-
 </style>

@@ -1,4 +1,5 @@
 <script>
+import { gsap } from "gsap";
 
 export default {
     name: 'AppHeader',
@@ -30,6 +31,18 @@ export default {
 
         }
     },
+    mounted(){
+       
+        gsap.from('.img', {
+            duration: 1.5,
+            delay: 0.5,
+            opacity: 0,
+            borderRadius: '50%',
+            y: -300,
+            ease: 'elastic',
+        })
+        
+    }
 
 }
 </script>
@@ -84,11 +97,12 @@ export default {
             color: white;
             text-decoration: none;
             font-size: 1.5rem;
-            padding-right: 2rem;
+            /* padding-right: 2rem; */
             transition: 1s;
 
             &:hover {
-                font-size: 2.5rem;
+                /* font-size: 2.5rem; */
+                transform: scale(1.5);
 
             }
         }

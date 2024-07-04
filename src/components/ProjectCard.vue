@@ -55,7 +55,7 @@ export default {
         background-color: black;
         z-index: 1;
         box-shadow: 0 0 0 0;
-        margin: -5rem;
+        /* transform: scale(1.2); */
     }
 
 

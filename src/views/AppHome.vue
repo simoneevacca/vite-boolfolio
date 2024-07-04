@@ -1,11 +1,16 @@
 <script>
 import ProjectCard from '../components/ProjectCard.vue';
+
 import axios from 'axios';
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 export default {
     name: 'AppHome',
 
     components: {
         ProjectCard,
+
     },
 
     data() {
@@ -19,6 +24,30 @@ export default {
 
     mounted() {
 
+        gsap.set(['.description', '.training', '.experience'], {
+            autoAlpha: 0,
+            x: -500,
+        })
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(['.description', '.training', '.experience'],{
+            duration: 1,
+            delay: 0.5,
+            x: 0,
+            autoAlpha: 1,
+            stagger: 1,
+        })
+        
+        gsap.to('.gear', {
+            rotate: 200,
+            ease: 'linear',
+            scrollTrigger: {
+                trigger: '.gear',
+                scrub: true,
+            }
+        })
+
+
         const url = this.base_api_url + this.base_project_url;
 
         axios
@@ -27,6 +56,8 @@ export default {
                 this.projects = response.data.results;
                 console.log(this.projects);
             })
+
+
     }
 
 }
@@ -39,15 +70,15 @@ export default {
 
     <section class="description">
         <div class="container">
-                <h1>Chi sono:</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, eius odio. Impedit libero ea dolorem
-                    placeat ut quod iure vel dolores assumenda, cupiditate aut! Natus assumenda quam mollitia. Minus cum
-                    quia aspernatur assumenda et iste eaque sit quod error corrupti aut, itaque, quae harum iusto, cumque
-                    numquam distinctio ipsam architecto natus! Consectetur ipsa, iusto excepturi dolorum magni repellat,
-                    vitae blanditiis quam sit maiores quidem accusantium veritatis et, magnam temporibus. Asperiores
-                    inventore a molestiae quod magni unde perferendis optio odio, dicta, provident similique nemo fugit aut?
-                    Asperiores modi nobis beatae aut! Autem earum maiores architecto consequatur debitis labore laborum, at
-                    odit.</p>
+            <h1>Chi sono:</h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, eius odio. Impedit libero ea dolorem
+                placeat ut quod iure vel dolores assumenda, cupiditate aut! Natus assumenda quam mollitia. Minus cum
+                quia aspernatur assumenda et iste eaque sit quod error corrupti aut, itaque, quae harum iusto, cumque
+                numquam distinctio ipsam architecto natus! Consectetur ipsa, iusto excepturi dolorum magni repellat,
+                vitae blanditiis quam sit maiores quidem accusantium veritatis et, magnam temporibus. Asperiores
+                inventore a molestiae quod magni unde perferendis optio odio, dicta, provident similique nemo fugit aut?
+                Asperiores modi nobis beatae aut! Autem earum maiores architecto consequatur debitis labore laborum, at
+                odit.</p>
         </div>
     </section>
 
@@ -76,17 +107,29 @@ export default {
         <div class="container">
             <h2>SKILLS</h2>
             <ul class="skills-list">
-                <li>HTML-5</li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>HTML-5</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>CSS-3</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>BOOTSTRAP</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>JS</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>VUE.JS</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>PHP</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>LARAVEL</div></li>
+                <li ><img class="gear"  src="/public/img/pngegg.png" alt=""><div>MYSQL</div></li>
+
+
+                <!-- <li>HTML-5</li>
                 <li>CSS-3</li>
                 <li>BOOTSTRAP</li>
                 <li>JS</li>
                 <li>VUE.JS</li>
                 <li>PHP</li>
                 <li>LARAVEL</li>
-                <li>MYSQL</li>
+                <li>MYSQL</li> -->
             </ul>
         </div>
     </section>
+    
+
 
 
     <section class="main-projects">
@@ -103,12 +146,12 @@ export default {
                 </div>
             </div>
             <div class="all-projects">
-                <router-link class="btn btn-light" :to="{name: 'projects'}">Guarda tutti</router-link>
+                <router-link class="btn btn-light" :to="{ name: 'projects' }">Guarda tutti</router-link>
             </div>
         </div>
     </section>
 
-    
+
 
 </template>
 
@@ -142,9 +185,19 @@ section {
             margin-bottom: 1rem;
             font-weight: bold;
             color: black;
-            background-color: white;
+            /* background-color: white; */
             padding: 0 1rem;
             border-radius: 10px;
+            position: relative;
+            >img{
+                width: 120px
+            };
+            >div{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
     }
 }
@@ -152,13 +205,13 @@ section {
 .main-projects {
     padding-top: 4rem;
 
-   
+
     h2 {
         margin: 1rem 0 5rem 0;
         color: white;
         text-align: center;
     }
-   
+
 
     .all-projects {
         margin-top: 1rem;
@@ -171,11 +224,11 @@ section {
 .description,
 .training,
 .experience {
-    
+
 
     .container {
 
-        
+
 
         color: rgb(207, 207, 207);
         background-color: rgba(110, 110, 110, 0.122);
@@ -187,6 +240,7 @@ section {
 
         &:hover {
             background-color: black;
+            /* transform: scale(1.2); */
 
         }
 
